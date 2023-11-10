@@ -10,6 +10,7 @@ export default class extends BaseSchema {
       table.integer('edad')
       table.string('email', 255).notNullable().unique()
       table.string('password', 180).notNullable()
+      table.string('estado',15).nullable().defaultTo("activo")
       table.string('remember_me_token').nullable()
 
 

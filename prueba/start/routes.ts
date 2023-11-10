@@ -19,10 +19,16 @@
 */
 
 import Route from '@ioc:Adonis/Core/Route'
-import UserController from 'App/Controllers/Http/UserController'
 
 Route.get('/', async () => {
   return { hello: 'world' }
 })
 
-Route.get('/users','UsersController.users')
+Route.get('/test1', async () => {
+  return { campo1: 'si_jala' }
+})
+
+Route.resource('userspc','UsersController')
+Route.any('allusers','UsersController.allusers')
+Route.any('crud/:id?','UsersController.crud')
+

@@ -1,6 +1,7 @@
 import BaseSeeder from '@ioc:Adonis/Lucid/Seeder'
 import User from 'App/Models/User'
 import Post from 'App/Models/Post'
+import Coment from 'App/Models/Coment'
 
 export default class extends BaseSeeder {
   public async run () {
@@ -46,42 +47,64 @@ export default class extends BaseSeeder {
     await Post.createMany([
       {
         encabezado:"Toy cansado jefe",
-        user:2,
+        user_id:2,
       },
       {
         encabezado:"Ya vamonos",
-        user:3,
+        user_id:3,
       },
       {
         encabezado:"Duerman a aranda",
-        user:6,
+        user_id:6,
       },
       {
         encabezado:"I can't breath -- Disney",
-        user:1,
+        user_id:1,
       },
       {
         encabezado:"Tengo ganas de papear a un chamaco en valorant",
-        user:4,
+        user_id:4,
       },
       {
         encabezado:"que asco los que juegan lol, sin ofender profe",
-        user:5,
+        user_id:5,
       },
       {
         encabezado:"roblox es para enfermos o para niños",
-        user:1,
+        user_id:1,
       },
       {
         encabezado:"pura fichita en el a y en el c",
-        user:3,
+        user_id:3,
       },
     ])
 
     await Coment.createMany([
       {
-        
-      }
+        contenido: 'JJAJAJAJ buen meme',
+        user_id: 2,
+        post_id: 3
+      },
+      {
+        contenido: 'Yo tambien',
+        user_id: 4,
+        post_id: 1
+      },
+      {
+        contenido: 'Si jala o no jala?',
+        user_id: 3,
+        post_id: 2
+      },
+      {
+        contenido: 'Denme de baja paro',
+        user_id: 1,
+        post_id: 5
+      },
+      {
+        contenido: 'Ocupo una 4070 pa la escuela',
+        user_id: 4,
+        post_id: 5
+      },
     ])
   
   }

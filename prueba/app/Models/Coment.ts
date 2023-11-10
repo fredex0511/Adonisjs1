@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, hasOne, HasOne } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, belongsTo, BelongsTo } from '@ioc:Adonis/Lucid/Orm'
 import User from './User'
 import Post from './Post'
 
@@ -10,11 +10,21 @@ export default class Coment extends BaseModel {
   @column()
   public contenido: string
 
-  @hasOne(()=>User)
-  public user: HasOne < typeof User >
+  @belongsTo(()=>User, {
+    foreignKey: 'user_id'
+  })
+  public user: BelongsTo < typeof User >
 
-  @hasOne(()=>Post)
-  public post: HasOne < typeof Post >
+  @column()
+  public user_id: number
+
+  @belongsTo(()=>Post, {
+    foreignKey: 'post_id'
+  })
+  public post: BelongsTo < typeof Post >
+
+  @column()
+  public post_id: number
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

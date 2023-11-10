@@ -7,8 +7,8 @@ export default class extends BaseSchema {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
       table.string('contenido')
-      table.integer('users_id').unsigned().references('users.id')
-      table.integer('posts_id').unsigned().references('posts.id')
+      table.integer('user_id').unsigned().references('users.id')
+      table.integer('post_id').unsigned().references('posts.id')
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
